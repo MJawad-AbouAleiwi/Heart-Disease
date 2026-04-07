@@ -77,6 +77,22 @@ Performance comparison is conducted to select the best model.
 
 ---
 
+
+## API and Application
+
+To make the model usable in real-world scenarios, it is exposed through a **FastAPI backend** and integrated into an interactive **Streamlit frontend**.
+
+### FastAPI Backend
+- Serves the trained model via a REST API  
+- Endpoint `/predict` takes patient features as input and returns a prediction  
+- Enables model integration into external applications  
+
+### Streamlit Frontend
+- Provides a user-friendly interface for entering patient data  
+- Sends requests to the API and displays predictions in real time  
+
+---
+
 ## Results
 
 - Random Forest achieved the best overall performance  
@@ -88,3 +104,29 @@ Performance comparison is conducted to select the best model.
 ## Conclusion
 
 This project demonstrates a complete machine learning pipeline, from data preprocessing and exploration to model training, evaluation, and interpretation. It highlights the importance of combining statistical analysis and machine learning to extract meaningful insights from healthcare data.
+
+---
+
+## How to Run the Project
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/MJawad-AbouAleiwi/Heart-Disease.git
+cd heart-disease
+```
+
+### 2. Run the backend (FastAPI)
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn app:app --reload
+```
+
+### 3. Run the frontend (Streamlit)
+```bash
+cd frontend
+pip install streamlit requests
+streamlit run app_streamlit.py
+```
